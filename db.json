@@ -1,0 +1,32 @@
+ {
+  "users": [
+    {
+      "id": "1",
+      "name": "Dr. Evans",
+      "email": "doctor@test.com",
+      "password": "password123",
+      "role": "doctor"
+    },
+    {
+      "id": "2",
+      "name": "Jane Doe",
+      "email": "patient@test.com",
+      "password": "password123",
+      "role": "patient"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "department": "General Consultation",
+      "date": "2026-05-20"
+    }
+  ],
+  "medicines": [
+    { "id": "1", "name": "Paracetamol", "stock": 450 },
+    { "id": "2", "name": "Amoxicillin", "stock": 12 },
+    { "id": "3", "name": "Insulin", "stock": 84 },
+    { "id": "4", "name": "Aspirin", "stock": 20 }
+  ]
+}

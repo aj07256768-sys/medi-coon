@@ -1,11 +1,27 @@
- import React, { useState } from 'react';
+  import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import StatsCards from './StatsCards';
 import { usePatients } from '../../hooks/usePatients';
 
 const DashboardContainer = () => {
-  // Internal view management - isolated from App.jsx!
+  // Internal view management
   const [currentView, setView] = useState('dashboard');
+  
+  // Local states to grab the live logged-in operator credentials
+  const [activeUser, setActiveUser] = useState({ name: 'User', role: 'Staff' });
+
+  // Read login parameters immediately when layout paints to screen
+  useEffect(() => {
+    const storedName = localStorage.getItem('user_name');
+    const storedRole = localStorage.getItem('user_role');
+    
+    if (storedName || storedRole) {
+      setActiveUser({
+        name: storedName || 'Unknown Operator',
+        role: storedRole || 'Staff'
+      });
+    }
+  }, []);
   
   // Custom hook bringing in backend interactive functions
   const { patients, loading, error, changeStatus, cancelAppointment } = usePatients();
@@ -26,8 +42,11 @@ const DashboardContainer = () => {
         {currentView === 'dashboard' && (
           <>
             <div className="mb-6">
-              <h1 className="text-3xl font-black text-slate-800 italic">Dashboard</h1>
-              <p className="text-xs font-bold text-slate-400">SYSTEM READY • USER: PATIENT</p>
+              <h1 className="text-3xl font-black text-slate-800 italic capitalize">{currentView}</h1>
+              {/* UPDATED: Displays real name and matching security access role */}
+              <p className="text-xs font-bold text-slate-400 tracking-wider">
+                SYSTEM READY • OPERATOR: <span className="text-blue-600 uppercase">{activeUser.name}</span> ({activeUser.role.toUpperCase()})
+              </p>
             </div>
 
             {loading && <p className="text-blue-500 font-bold">Loading dashboard data...</p>}
@@ -80,6 +99,9 @@ const DashboardContainer = () => {
                       ))}
                     </tbody>
                   </table>
+                  {patients.length === 0 && (
+                    <p className="text-slate-400 text-sm italic py-4 text-center">No active patients inside queue registry.</p>
+                  )}
                 </div>
               </>
             )}
@@ -90,7 +112,6 @@ const DashboardContainer = () => {
         {currentView === 'patients' && (
           <div>
             <h1 className="text-3xl font-black text-slate-800 italic mb-4">Patient Records</h1>
-            {/* Your group members can drop their PatientRecords component here later */}
           </div>
         )}
 
