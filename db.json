@@ -72,6 +72,20 @@
       "status": "Active"
     },
     {
+      "name": "yyy",
+      "stock": 10000,
+      "id": 1
+    },
+    {
+      "name": "6775",
+      "stock": 27777,
+      "id": 2
+    },
+    {
+      "name": "yuuu",
+      "stock": 980,
+      "id": 3
+
       "id": "MC-314",
       "name": "Grace Achieng",
       "age": 63,
@@ -88,6 +102,7 @@
       "blood": "B+",
       "last": "28 Apr 2026",
       "status": "Inactive"
+
     }
   ],
   "meta": {
