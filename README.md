@@ -1,16 +1,26 @@
-# React + Vite
+# MediConnect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MediConnect is a fast, secure, and standalone healthcare management system built with React. It replaces slow, paper-based workflows with an intuitive digital dashboard for both medical staff and patients.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **Role-Based Access Control:** Secure, separate workflows and custom sidebars for Doctors (Staff) and Patients.
+* **Live Doctor Dashboard:** An interactive daily schedule sheet showing patient names and appointment dates with instant dismiss/clear controls.
+* **Patient Booking Engine:** Simple form validation that allows patients to pick dates and departments, feeding into the live queue instantly.
+* **Pharmacy Inventory Tracker:** Real-time stock tracking with quick search filtering and warning highlights for low-stock medicine.
+* **Secure Patient Archive:** A digital record manager allowing staff to see full visitor logs and past clinical dates instantly.
 
-## React Compiler
+## 🛠️ Tech Stack & Strategy
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Frontend Framework:** React (Vite)
+* **Styling:** Tailwind CSS (Dark-mode optimized UI)
+* **State Management:** Pure React Hooks (`useState`, `useEffect`) for standalone memory storage. No complex database servers required for demonstration.
 
-## Expanding the ESLint configuration
+## 📦 Quick Start Guide
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Follow these simple steps to run the project locally on your machine:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/your-username/mediconnect.git](https://github.com/your-username/mediconnect.git)
+   cd mediconnect
