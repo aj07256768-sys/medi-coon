@@ -2,6 +2,7 @@
   "users": [
     {
       "id": "1",
+
       "username": "johndoe@email.com",
       "password": "Password123",
       "role": "Patient",
@@ -13,6 +14,73 @@
       "password": "DocPassword456",
       "role": "Doctor",
       "name": "Dr. Sarah Smith"
+      "username": "admin_staff",
+      "name": "Sarah Jenkins",
+      "role": "Lead Administrator"
+    }
+  ],
+  "stats": {
+    "totalPatients": 142,
+    "activeQueue": 12,
+    "availableDoctors": 8,
+    "occupancyRate": "84%"
+  },
+  "patients": [
+    {
+      "id": "rec-01",
+      "name": "Alex Rivera",
+      "time": "10:30 AM",
+      "department": "General Consultation",
+      "date": "2026-05-20",
+      "type": "Scheduled",
+      "status": "Active",
+      "condition": "Routine Checkup",
+      "assignedDoctor": "Dr. Marcus Vance"
+    },
+    {
+      "id": "rec-02",
+      "name": "Elena Rostova",
+      "time": "11:15 AM",
+      "department": "Neurology Unit",
+      "date": "2026-05-20",
+      "type": "Walk-in",
+      "status": "Pending Assignment",
+      "condition": "Acute Migraine",
+      "assignedDoctor": "Unassigned"
+    },
+    {
+      "id": "rec-03",
+      "name": "Marcus Aurelius",
+      "time": "11:30 AM",
+      "department": "Cardiology Unit",
+      "date": "2026-05-21",
+      "type": "Scheduled",
+      "status": "Active",
+      "condition": "Hypertension Follow-up",
+      "assignedDoctor": "Dr. Sarah Jenkins"
+    },
+    {
+      "id": "rec-04",
+      "name": "Chloe Sterling",
+      "time": "12:15 PM",
+      "department": "Urgent Care Unit",
+      "date": "2026-05-21",
+      "type": "Urgent",
+      "status": "Active",
+      "condition": "Suture Removal",
+      "assignedDoctor": "Dr. Amara Okafor"
+    }
+  ],
+  "vitalsTelemetry": [
+    {
+      "id": "v-101",
+      "patientId": "rec-01",
+      "bloodPressure": "120/80",
+      "heartRate": 72,
+      "temperature": "98.6",
+      "oxygenSaturation": "99%",
+      "recordedAt": "10:35 AM"
+
     },
     {
       "id": "3",
@@ -28,5 +96,11 @@
       "stock": 10000,
       "id": 1
     }
+  ],
+  "medicines": [
+    { "id": 1, "name": "Paracetamol", "stock": 450 },
+    { "id": 2, "name": "Amoxicillin", "stock": 12 },
+    { "id": 3, "name": "Insulin", "stock": 84 },
+    { "id": 4, "name": "Aspirin", "stock": 20 }
   ]
 }
