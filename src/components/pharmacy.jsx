@@ -22,19 +22,27 @@ const PharmacyStock = ({ medicines, setMedicines }) => {
 
     <div className="p-10 bg-white rounded-[2.5rem] border border-slate-200">
 
+
       <h1 className="text-xl font-black uppercase mb-6">Pharmacy Inventory</h1>
+
 
       <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search medicine..." className="w-full p-4 rounded-2xl border mb-6 bg-slate-50 font-bold text-sm" />
 
+
       <div className="flex gap-3 mb-8">
+
 
         <input value={newMed.name} onChange={(e) => setNewMed({ ...newMed, name: e.target.value })} 
 
+
         placeholder="Name" className="p-3 border rounded-xl text-sm font-bold bg-slate-50" />
+
 
         <input value={newMed.stock} onChange={(e) => setNewMed({ ...newMed, stock: e.target.value })} 
 
+
         placeholder="Stock" type="number" className="p-3 border rounded-xl text-sm font-bold bg-slate-50" />
+        
 
         <button onClick={addMedicine} className="bg-blue-600 text-white px-5 rounded-xl text-xs font-black uppercase">Add</button>
       </div>
@@ -58,7 +66,7 @@ const PharmacyStock = ({ medicines, setMedicines }) => {
 
         ))}
       </div>
-      
+
     </div>
   );
 };
