@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LoginForm from './components/login';
-import Sidebar from './components/sidebar';
-import StatsCards from './components/statscard';
+import Sidebar from './components/Sidebar';
+import StatsCards from './components/StatsCards';
 import AppointmentTable from './components/Appointment';
 import PharmacyStock from './components/pharmacy';
 import PatientRecords from './components/Records';
 import BookingForm from './components/booking';
+import DashboardContainer from './components/Dashboard'; 
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -13,18 +14,42 @@ export default function App() {
   const [view, setView] = useState('dashboard');
   const [userName, setUserName] = useState('');
 
-  // Local state arrays mimicking the database
-  const [appointments, setAppointments] = useState([
-    { id: 1, name: "John Doe", department: "General Consultation", date: "2026-05-20" },
-    { id: 2, name: "Sarah Smith", department: "Cardiology Unit", date: "2026-05-21" }
-  ]);
+  // Dynamic state arrays populated from json-server
+  const [appointments, setAppointments] = useState([]);
+  const [medicines, setMedicines] = useState([]);
+  const [stats, setStats] = useState({ totalPatients: 0, queueCount: 0, systemMode: 'Loading...' });
 
-  const [medicines, setMedicines] = useState([
-    { id: 1, name: "Paracetamol", stock: 450 },
-    { id: 2, name: "Amoxicillin", stock: 12 },
-    { id: 3, name: "Insulin", stock: 84 },
-    { id: 4, name: "Aspirin", stock: 20 }
-  ]);
+  // Single synchronized network fetch hook
+  useEffect(() => {
+    if (!isLoggedIn) return; 
+
+    // 1. Fetch live Appointments from the "patients" array
+    fetch('http://localhost:3001/patients')
+      .then(res => res.json())
+      .then(data => setAppointments(data))
+      .catch(err => console.error("Error connecting to /patients endpoint:", err));
+
+    // 2. Fetch live Medicines inventory array from db.json
+    fetch('http://localhost:3001/medicines')
+      .then(res => res.json())
+      .then(data => setMedicines(data || [])) 
+      .catch(err => console.error("Error connecting to medicines database:", err));
+
+    // 3. Fetch live Telemetry Metrics from db.json stats object
+    fetch('http://localhost:3001/stats')
+      .then(res => res.json())
+      .then(data => {
+        setStats({
+          totalPatients: data.totalPatients || 0,
+          queueCount: data.activeQueue || 0, 
+          systemMode: data.occupancyRate ? `Occupancy: ${data.occupancyRate}` : 'Live Sync' 
+        });
+      })
+      .catch(err => {
+        console.error("Error fetching telemetry metrics:", err);
+        setStats({ totalPatients: 142, queueCount: 12, systemMode: 'Local Fallback' });
+      });
+  }, [isLoggedIn]); 
 
   const handleLoginSuccess = (userRole, name) => {
     setRole(userRole);
@@ -58,7 +83,12 @@ export default function App() {
         <div className="transition-all duration-300">
           {view === 'dashboard' && role === 'doctor' && (
             <div className="space-y-10">
-              <StatsCards appointmentsCount={appointments.length} />
+              {/* StatsCards fed dynamically from server schema */}
+              <StatsCards 
+                totalPatients={stats.totalPatients} 
+                queueCount={appointments.length || stats.queueCount} 
+                systemMode={stats.systemMode} 
+              />
               <div className="bg-white rounded-[2.5rem] shadow-sm border border-slate-100 p-2 overflow-hidden">
                 <AppointmentTable appointments={appointments} setAppointments={setAppointments} />
               </div>
