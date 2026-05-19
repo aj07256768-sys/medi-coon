@@ -18,7 +18,9 @@ const BookingForm = ({ appointments, setAppointments, onComplete }) => {
   return (
     <div className="max-w-4xl mx-auto bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm">
       <h3 className="text-3xl font-black text-slate-800 uppercase tracking-tighter mb-6">New Appointment</h3>
+
       <form onSubmit={handleSubmit} className="space-y-6">
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <input type="text" required placeholder="Patient Full Name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full p-5 rounded-2xl bg-slate-50 border outline-none font-bold text-sm" />
           <select value={formData.department} onChange={(e) => setFormData({ ...formData, department: e.target.value })} className="w-full p-5 rounded-2xl bg-slate-50 border outline-none font-bold text-sm">
