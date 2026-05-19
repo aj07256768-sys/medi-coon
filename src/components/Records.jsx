@@ -34,4 +34,21 @@ const PatientRecords = () => {
   );
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export default PatientRecords;
