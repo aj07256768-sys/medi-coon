@@ -1,6 +1,39 @@
 {
   "patients": [
     {
+
+      "id": "rec-01",
+      "name": "Alex Rivera",
+      "time": "10:31 AM",
+      "department": "General Consultation",
+      "date": "2026-05-20",
+      "type": "Scheduled",
+      "status": "Active",
+      "condition": "Routine Checkup",
+      "assignedDoctor": "Dr. Marcus Vance"
+    },
+    {
+      "id": "rec-02",
+      "name": "Elena Rostova",
+      "time": "11:15 AM",
+      "department": "Neurology Unit",
+      "date": "2026-05-20",
+      "type": "Walk-in",
+      "status": "Pending Assignment",
+      "condition": "Acute Migraine",
+      "assignedDoctor": "Unassigned"
+    },
+    {
+      "id": "rec-03",
+      "name": "Marcus Aurelius",
+      "time": "11:30 AM",
+      "department": "Cardiology Unit",
+      "date": "2026-05-21",
+      "type": "Scheduled",
+      "status": "Active",
+      "condition": "Hypertension Follow-up",
+      "assignedDoctor": "Dr. Sarah Jenkins"
+
       "id": "MC-102",
       "name": "Alice Wanjiku",
       "age": 34,
@@ -8,6 +41,7 @@
       "blood": "O+",
       "last": "12 May 2026",
       "status": "Active"
+
     },
     {
       "id": "MC-405",
