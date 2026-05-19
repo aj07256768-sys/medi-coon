@@ -1,32 +1,63 @@
- {
-  "users": [
+{
+  "patients": [
     {
-      "id": "1",
-      "name": "Dr. Evans",
-      "email": "doctor@test.com",
-      "password": "password123",
-      "role": "doctor"
+      "id": "MC-102",
+      "name": "Alice Wanjiku",
+      "age": 34,
+      "gender": "F",
+      "blood": "O+",
+      "last": "12 May 2026",
+      "status": "Active"
     },
     {
-      "id": "2",
-      "name": "Jane Doe",
-      "email": "patient@test.com",
-      "password": "password123",
-      "role": "patient"
-    }
-  ],
-  "appointments": [
+      "id": "MC-405",
+      "name": "David Akoth",
+      "age": 52,
+      "gender": "M",
+      "blood": "A-",
+      "last": "10 May 2026",
+      "status": "Active"
+    },
     {
-      "id": "1",
-      "name": "John Doe",
-      "department": "General Consultation",
-      "date": "2026-05-20"
+      "id": "MC-092",
+      "name": "Sarah Njeri",
+      "age": 28,
+      "gender": "F",
+      "blood": "B+",
+      "last": "01 May 2026",
+      "status": "Inactive"
+    },
+    {
+      "id": "MC-881",
+      "name": "Emmanuel Kiprop",
+      "age": 41,
+      "gender": "M",
+      "blood": "AB+",
+      "last": "18 May 2026",
+      "status": "Active"
+    },
+    {
+      "id": "MC-314",
+      "name": "Grace Achieng",
+      "age": 63,
+      "gender": "F",
+      "blood": "O+",
+      "last": "14 May 2026",
+      "status": "Active"
+    },
+    {
+      "id": "MC-702",
+      "name": "John Mwangi",
+      "age": 19,
+      "gender": "M",
+      "blood": "B+",
+      "last": "28 Apr 2026",
+      "status": "Inactive"
     }
   ],
-  "medicines": [
-    { "id": "1", "name": "Paracetamol", "stock": 450 },
-    { "id": "2", "name": "Amoxicillin", "stock": 12 },
-    { "id": "3", "name": "Insulin", "stock": 84 },
-    { "id": "4", "name": "Aspirin", "stock": 20 }
-  ]
+  "meta": {
+    "total_records": 1402,
+    "archive_version": "2026.1",
+    "facility_code": "HQ-NBI"
+  }
 }
