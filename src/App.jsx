@@ -3,7 +3,7 @@ import LoginForm from './components/login';
 import Sidebar from './components/Sidebar';
 import PharmacyStock from './components/pharmacy';
 import PatientRecords from './components/Records';
-import BookingForm from './components/booking';
+import BookingForm from './components/Booking';
 import DashboardContainer from './components/Dashboard'; 
 
 export default function App() {
