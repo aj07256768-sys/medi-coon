@@ -191,9 +191,7 @@ const DashboardContainer = () => {
             </div>
           )}
 
-          {/* ========================================================================= */}
-          {/* VIEWPORT PANEL 4: SERVICES OVERVIEW                                       */}
-          {/* ========================================================================= */}
+           
           {currentView === 'services' && (
             <div className="max-w-7xl mx-auto bg-white p-6 sm:p-8 rounded-[2rem] border border-slate-200/60 shadow-sm space-y-6 animate-[fadeIn_0.2s_ease-out]">
               <div className="border-b border-slate-100 pb-4">
