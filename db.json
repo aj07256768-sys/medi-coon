@@ -18,6 +18,8 @@
       "id": "rec-01",
       "name": "Alex Rivera",
       "time": "10:30 AM",
+      "department": "General Consultation",
+      "date": "2026-05-20",
       "type": "Scheduled",
       "status": "Active",
       "condition": "Routine Checkup",
@@ -27,6 +29,8 @@
       "id": "rec-02",
       "name": "Elena Rostova",
       "time": "11:15 AM",
+      "department": "Neurology Unit",
+      "date": "2026-05-20",
       "type": "Walk-in",
       "status": "Pending Assignment",
       "condition": "Acute Migraine",
@@ -36,6 +40,8 @@
       "id": "rec-03",
       "name": "Marcus Aurelius",
       "time": "11:30 AM",
+      "department": "Cardiology Unit",
+      "date": "2026-05-21",
       "type": "Scheduled",
       "status": "Active",
       "condition": "Hypertension Follow-up",
@@ -45,6 +51,8 @@
       "id": "rec-04",
       "name": "Chloe Sterling",
       "time": "12:15 PM",
+      "department": "Urgent Care Unit",
+      "date": "2026-05-21",
       "type": "Urgent",
       "status": "Active",
       "condition": "Suture Removal",
@@ -109,5 +117,11 @@
       "type": "Diagnostic Clinic",
       "phone": "(617) 555-0199"
     }
+  ],
+  "medicines": [
+    { "id": 1, "name": "Paracetamol", "stock": 450 },
+    { "id": 2, "name": "Amoxicillin", "stock": 12 },
+    { "id": 3, "name": "Insulin", "stock": 84 },
+    { "id": 4, "name": "Aspirin", "stock": 20 }
   ]
 }
