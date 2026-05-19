@@ -1,4 +1,3 @@
-
 {
   "users": [
     {
@@ -22,6 +21,12 @@
       "role": "Admin",
       "name": "System Administrator"
     }
+  ],
+  "medicines": [
+    {
+      "name": "yyy",
+      "stock": 10000,
+      "id": 1
+    }
   ]
 }
-
