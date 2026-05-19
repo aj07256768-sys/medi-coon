@@ -1,82 +1,126 @@
 import React, { useState } from 'react';
 
-const LoginForm = ({ onLoginSuccess }) => {
-  const [role, setRole] = useState('doctor');
-  const [isSigningUp, setIsSigningUp] = useState(false);
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+const LoginForm = () => {
+  // Local state to manage the form inputs
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+    role: 'Patient' // Default role selection
+  });
 
-  // Static mockup list of user credentials
-  const [mockUsers, setMockUsers] = useState([
-    { name: "Dr. Evans", email: "doctor@test.com", password: "password123", role: "doctor" },
-    { name: "Jane Doe", email: "patient@test.com", password: "password123", role: "patient" }
-  ]);
+  // Handler function to update state when a user types or selects a role
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
 
+  // Pure frontend submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError('');
-
-    if (isSigningUp) {
-      if (mockUsers.find(u => u.email.toLowerCase() === email.toLowerCase())) {
-        setError('Email already registered!');
-        return;
-      }
-      const newUser = { name, email, password, role };
-      setMockUsers([...mockUsers, newUser]);
-      alert('Registration successful!');
-      onLoginSuccess(role, name);
-    } else {
-      const matchedUser = mockUsers.find(
-        u => u.email.toLowerCase() === email.toLowerCase() && u.password === password && u.role === role
-      );
-
-      if (matchedUser) {
-        onLoginSuccess(matchedUser.role, matchedUser.name);
-      } else {
-        setError('Invalid login credentials or role!');
-      }
-    }
+    console.log("Form submitted locally:", formData);
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col md:flex-row font-sans bg-white">
-      <div className="md:w-3/5 bg-gradient-to-br from-blue-900 to-blue-700 p-12 flex flex-col justify-between text-white">
-        <div>
-          <div className="text-2xl font-black mb-20 italic">MEDICONNECT</div>
-          <h1 className="text-6xl font-black leading-tight">Healthcare<br/><span className="text-blue-400">Standalone.</span></h1>
+    <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8 rounded-2xl bg-white p-8 shadow-xl shadow-slate-100 border border-slate-100">
+        
+        {/* Branding/Heading */}
+        <div className="text-center">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Mediconnect
+          </h1>
+          <p className="mt-2 text-sm text-slate-500">
+            Welcome back! Please enter your details.
+          </p>
         </div>
-        <div className="flex gap-10 text-[10px] font-black opacity-40 uppercase tracking-widest"><span>LOCAL DEV MODE</span></div>
-      </div>
-
-      <div className="w-full md:w-2/5 flex items-center justify-center p-10">
-        <div className="w-full max-w-md">
-          <h2 className="text-4xl font-black text-slate-800 mb-6">{isSigningUp ? 'Join Portal' : 'Login'}</h2>
-          {error && <div className="p-4 bg-red-50 text-red-700 text-xs font-black rounded-xl mb-4">⚠️ {error}</div>}
+        
+        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
           
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <button type="button" onClick={() => setRole('doctor')} className={`p-4 rounded-3xl border-2 font-black text-[10px] uppercase transition-all ${role === 'doctor' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-100 text-slate-400'}`}>👨‍⚕️ Staff Portal</button>
-              <button type="button" onClick={() => setRole('patient')} className={`p-4 rounded-3xl border-2 font-black text-[10px] uppercase transition-all ${role === 'patient' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-100 text-slate-400'}`}>🤒 Patient Hub</button>
-            </div>
+          {/* Role Selection Dropdown */}
+          <div className="space-y-2">
+            <label htmlFor="role" className="text-sm font-medium text-slate-700 block">
+              Login As
+            </label>
+            <select
+              id="role"
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              className="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-900 shadow-sm transition duration-150 ease-in-out focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 sm:text-sm"
+            >
+              <option value="Patient">Patient</option>
+              <option value="Doctor">Doctor</option>
+              <option value="Admin">Admin</option>
+            </select>
+          </div>
 
-            <div className="space-y-3">
-              {isSigningUp && <input type="text" placeholder="Full Name" required value={name} onChange={(e) => setName(e.target.value)} className="w-full p-4 rounded-2xl bg-slate-50 border text-sm font-bold outline-none focus:border-blue-600" />}
-              <input type="email" placeholder="Email Address" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-4 rounded-2xl bg-slate-50 border text-sm font-bold outline-none focus:border-blue-600" />
-              <input type="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} className="w-full p-4 rounded-2xl bg-slate-50 border text-sm font-bold outline-none focus:border-blue-600" />
-            </div>
+          {/* Username Input */}
+          <div className="space-y-2">
+            <label htmlFor="username" className="text-sm font-medium text-slate-700 block">
+              Username / Email
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+              placeholder="Enter your username or email"
+              className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 placeholder-slate-400 shadow-sm transition duration-150 ease-in-out focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 sm:text-sm"
+            />
+          </div>
 
-            <button type="submit" className="w-full py-5 bg-blue-600 text-white rounded-2xl font-black text-xs uppercase tracking-widest">{isSigningUp ? 'Register Account' : 'Initialize Portal'}</button>
-          </form>
-          <button type="button" onClick={() => { setIsSigningUp(!isSigningUp); setError(''); }} className="mt-8 text-blue-600 font-black text-xs uppercase w-full text-center hover:underline">{isSigningUp ? 'Back to Login' : 'Create Local Profile'}</button>
-        </div>
+          {/* Password Input */}
+          <div className="space-y-2">
+            <label htmlFor="password" className="text-sm font-medium text-slate-700 block">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              placeholder="Enter your password"
+              className="block w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 placeholder-slate-400 shadow-sm transition duration-150 ease-in-out focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 sm:text-sm"
+            />
+          </div>
+
+          {/* Optional: Remember Me & Forgot Password Layout wrapper */}
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center">
+              <input
+                id="remember-me"
+                name="remember-me"
+                type="checkbox"
+                className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+              />
+              <label htmlFor="remember-me" className="ml-2 text-slate-600">
+                Remember me
+              </label>
+            </div>
+            <a href="#forgot" className="font-medium text-blue-600 hover:text-blue-500 transition duration-150">
+              Forgot password?
+            </a>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="flex w-full justify-center rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition duration-150 ease-in-out"
+          >
+            Sign In
+          </button>
+
+        </form>
       </div>
     </div>
   );
 };
-
-
-
 
 export default LoginForm;
