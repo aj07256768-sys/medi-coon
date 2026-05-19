@@ -1,10 +1,39 @@
 {
+
+  "users": [
+    {
+      "id": "1",
+      "username": "admin_staff",
+      "name": "Sarah Jenkins",
+      "role": "Lead Administrator"
+    },
+    {
+      "username": "johndoc@email.com",
+      "password": "Password123",
+      "role": "Patient",
+      "name": "John Doe"
+    },
+    {
+      "id": "2",
+      "username": "drsmith@mediconnect.com",
+      "password": "DocPassword456",
+      "role": "Doctor",
+      "name": "Dr. Sarah Smith"
+    }
+  ],
+  "stats": {
+    "totalPatients": 142,
+    "activeQueue": 13,
+    "availableDoctors": 8,
+    "occupancyRate": "84%"
+  },
+
   "patients": [
     {
 
       "id": "rec-01",
       "name": "Alex Rivera",
-      "time": "10:31 AM",
+      "time": "10:30 AM",
       "department": "General Consultation",
       "date": "2026-05-20",
       "type": "Scheduled",
@@ -20,13 +49,12 @@
       "date": "2026-05-20",
       "type": "Walk-in",
       "status": "Pending Assignment",
-      "condition": "Acute Migraine",
-      "assignedDoctor": "Unassigned"
+      "condition": "Acute Migraine"
     },
     {
       "id": "rec-03",
       "name": "Marcus Aurelius",
-      "time": "11:30 AM",
+      "time": "12:00 PM",
       "department": "Cardiology Unit",
       "date": "2026-05-21",
       "type": "Scheduled",
@@ -110,5 +138,11 @@
     "total_records": 1402,
     "archive_version": "2026.1",
     "facility_code": "HQ-NBI"
-  }
+  },
+  "medicines": [
+    { "id": 1, "name": "Paracetamol", "stock": 450 },
+    { "id": 2, "name": "Amoxicillin", "stock": 12 },
+    { "id": 3, "name": "Insulin", "stock": 84 },
+    { "id": 4, "name": "Aspirin", "stock": 20 }
+  ]
 }
