@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 const BookingForm = ({ appointments, setAppointments, onComplete }) => {
+
   const [formData, setFormData] = useState({ name: '', department: 'General Consultation', date: '' });
 
   // Handle new booking submission
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const newAppointment = {
