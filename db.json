@@ -1,20 +1,7 @@
 {
-  "operators": [
-    {
-      "id": "1",
-      "username": "admin_staff",
-      "name": "Sarah Jenkins",
-      "role": "Lead Administrator"
-    }
-  ],
-  "stats": {
-    "totalPatients": 142,
-    "activeQueue": 12,
-    "availableDoctors": 8,
-    "occupancyRate": "84%"
-  },
   "patients": [
     {
+
       "id": "rec-01",
       "name": "Alex Rivera",
       "time": "10:31 AM",
@@ -46,82 +33,65 @@
       "status": "Active",
       "condition": "Hypertension Follow-up",
       "assignedDoctor": "Dr. Sarah Jenkins"
+
+      "id": "MC-102",
+      "name": "Alice Wanjiku",
+      "age": 34,
+      "gender": "F",
+      "blood": "O+",
+      "last": "12 May 2026",
+      "status": "Active"
+
     },
     {
-      "id": "rec-04",
-      "name": "Chloe Sterling",
-      "time": "12:15 PM",
-      "department": "Urgent Care Unit",
-      "date": "2026-05-21",
-      "type": "Urgent",
-      "status": "Active",
-      "condition": "Suture Removal",
-      "assignedDoctor": "Dr. Amara Okafor"
+      "id": "MC-405",
+      "name": "David Akoth",
+      "age": 52,
+      "gender": "M",
+      "blood": "A-",
+      "last": "10 May 2026",
+      "status": "Active"
+    },
+    {
+      "id": "MC-092",
+      "name": "Sarah Njeri",
+      "age": 28,
+      "gender": "F",
+      "blood": "B+",
+      "last": "01 May 2026",
+      "status": "Inactive"
+    },
+    {
+      "id": "MC-881",
+      "name": "Emmanuel Kiprop",
+      "age": 41,
+      "gender": "M",
+      "blood": "AB+",
+      "last": "18 May 2026",
+      "status": "Active"
+    },
+    {
+      "id": "MC-314",
+      "name": "Grace Achieng",
+      "age": 63,
+      "gender": "F",
+      "blood": "O+",
+      "last": "14 May 2026",
+      "status": "Active"
+    },
+    {
+      "id": "MC-702",
+      "name": "John Mwangi",
+      "age": 19,
+      "gender": "M",
+      "blood": "B+",
+      "last": "28 Apr 2026",
+      "status": "Inactive"
     }
   ],
-  "vitalsTelemetry": [
-    {
-      "id": "v-101",
-      "patientId": "rec-01",
-      "bloodPressure": "120/80",
-      "heartRate": 72,
-      "temperature": "98.6",
-      "oxygenSaturation": "99%",
-      "recordedAt": "10:35 AM"
-    },
-    {
-      "id": "v-102",
-      "patientId": "rec-03",
-      "bloodPressure": "142/95",
-      "heartRate": 88,
-      "temperature": "98.9",
-      "oxygenSaturation": "96%",
-      "recordedAt": "11:40 AM"
-    }
-  ],
-  "doctorSchedules": [
-    {
-      "id": "doc-1",
-      "doctorName": "Dr. Marcus Vance",
-      "specialty": "Pediatrics",
-      "status": "On Duty",
-      "slots": ["09:00 AM", "10:30 AM", "02:00 PM"]
-    },
-    {
-      "id": "doc-2",
-      "doctorName": "Dr. Sarah Jenkins",
-      "specialty": "Cardiology",
-      "status": "On Duty",
-      "slots": ["11:30 AM", "01:15 PM", "04:30 PM"]
-    },
-    {
-      "id": "doc-3",
-      "doctorName": "Dr. Amara Okafor",
-      "specialty": "Emergency Medicine",
-      "status": "On Call",
-      "slots": ["12:15 PM", "03:00 PM"]
-    }
-  ],
-  "facilities": [
-    {
-      "id": "fac-01",
-      "name": "Community General Care Center (Boston Main)",
-      "address": "75 Alphonsus St, Boston, MA 02120",
-      "type": "Urgent Outpatient Facility",
-      "phone": "(617) 555-0143"
-    },
-    {
-      "id": "fac-02",
-      "name": "MediConnect Ambulatory Annex (Cambridge Node)",
-      "address": "149 Cambridge St, Cambridge, MA 02141",
-      "type": "Diagnostic Clinic",
-      "phone": "(617) 555-0199"
-    }
-  ],
-  "medicines": [
-    { "id": 1, "name": "Paracetamol", "stock": 450 },
-    { "id": 2, "name": "Amoxicillin", "stock": 12 },
-    { "id": 3, "name": "Insulin", "stock": 84 },
-    { "id": 4, "name": "Aspirin", "stock": 20 }
-  ]
+  "meta": {
+    "total_records": 1402,
+    "archive_version": "2026.1",
+    "facility_code": "HQ-NBI"
+  }
 }
