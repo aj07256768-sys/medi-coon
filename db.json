@@ -1,106 +1,63 @@
 {
-  "users": [
-    {
-      "id": "1",
-
-      "username": "johndoe@email.com",
-      "password": "Password123",
-      "role": "Patient",
-      "name": "John Doe"
-    },
-    {
-      "id": "2",
-      "username": "drsmith@mediconnect.com",
-      "password": "DocPassword456",
-      "role": "Doctor",
-      "name": "Dr. Sarah Smith"
-      "username": "admin_staff",
-      "name": "Sarah Jenkins",
-      "role": "Lead Administrator"
-    }
-  ],
-  "stats": {
-    "totalPatients": 142,
-    "activeQueue": 12,
-    "availableDoctors": 8,
-    "occupancyRate": "84%"
-  },
   "patients": [
     {
-      "id": "rec-01",
-      "name": "Alex Rivera",
-      "time": "10:30 AM",
-      "department": "General Consultation",
-      "date": "2026-05-20",
-      "type": "Scheduled",
-      "status": "Active",
-      "condition": "Routine Checkup",
-      "assignedDoctor": "Dr. Marcus Vance"
+      "id": "MC-102",
+      "name": "Alice Wanjiku",
+      "age": 34,
+      "gender": "F",
+      "blood": "O+",
+      "last": "12 May 2026",
+      "status": "Active"
     },
     {
-      "id": "rec-02",
-      "name": "Elena Rostova",
-      "time": "11:15 AM",
-      "department": "Neurology Unit",
-      "date": "2026-05-20",
-      "type": "Walk-in",
-      "status": "Pending Assignment",
-      "condition": "Acute Migraine",
-      "assignedDoctor": "Unassigned"
+      "id": "MC-405",
+      "name": "David Akoth",
+      "age": 52,
+      "gender": "M",
+      "blood": "A-",
+      "last": "10 May 2026",
+      "status": "Active"
     },
     {
-      "id": "rec-03",
-      "name": "Marcus Aurelius",
-      "time": "11:30 AM",
-      "department": "Cardiology Unit",
-      "date": "2026-05-21",
-      "type": "Scheduled",
-      "status": "Active",
-      "condition": "Hypertension Follow-up",
-      "assignedDoctor": "Dr. Sarah Jenkins"
+      "id": "MC-092",
+      "name": "Sarah Njeri",
+      "age": 28,
+      "gender": "F",
+      "blood": "B+",
+      "last": "01 May 2026",
+      "status": "Inactive"
     },
     {
-      "id": "rec-04",
-      "name": "Chloe Sterling",
-      "time": "12:15 PM",
-      "department": "Urgent Care Unit",
-      "date": "2026-05-21",
-      "type": "Urgent",
-      "status": "Active",
-      "condition": "Suture Removal",
-      "assignedDoctor": "Dr. Amara Okafor"
+      "id": "MC-881",
+      "name": "Emmanuel Kiprop",
+      "age": 41,
+      "gender": "M",
+      "blood": "AB+",
+      "last": "18 May 2026",
+      "status": "Active"
+    },
+    {
+      "id": "MC-314",
+      "name": "Grace Achieng",
+      "age": 63,
+      "gender": "F",
+      "blood": "O+",
+      "last": "14 May 2026",
+      "status": "Active"
+    },
+    {
+      "id": "MC-702",
+      "name": "John Mwangi",
+      "age": 19,
+      "gender": "M",
+      "blood": "B+",
+      "last": "28 Apr 2026",
+      "status": "Inactive"
     }
   ],
-  "vitalsTelemetry": [
-    {
-      "id": "v-101",
-      "patientId": "rec-01",
-      "bloodPressure": "120/80",
-      "heartRate": 72,
-      "temperature": "98.6",
-      "oxygenSaturation": "99%",
-      "recordedAt": "10:35 AM"
-
-    },
-    {
-      "id": "3",
-      "username": "admin01",
-      "password": "AdminSecure789",
-      "role": "Admin",
-      "name": "System Administrator"
-    }
-  ],
-  "medicines": [
-    {
-      "name": "yyy",
-      "stock": 10000,
-      "id": 1
-    }
-  ],
-  "medicines": [
-    { "id": 1, "name": "Paracetamol", "stock": 450 },
-    { "id": 2, "name": "Amoxicillin", "stock": 12 },
-    { "id": 3, "name": "Insulin", "stock": 84 },
-    { "id": 4, "name": "Aspirin", "stock": 20 }
-  ]
+  "meta": {
+    "total_records": 1402,
+    "archive_version": "2026.1",
+    "facility_code": "HQ-NBI"
+  }
 }
