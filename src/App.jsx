@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LoginForm from './components/login';
 import Sidebar from './components/Sidebar';
-import StatsCards from './components/StatsCards';
-import AppointmentTable from './components/Appointment';
 import PharmacyStock from './components/pharmacy';
 import PatientRecords from './components/Records';
 import BookingForm from './components/booking';
@@ -14,28 +12,28 @@ export default function App() {
   const [view, setView] = useState('dashboard');
   const [userName, setUserName] = useState('');
 
-  // Dynamic state arrays populated from json-server
+  // Live database states
   const [appointments, setAppointments] = useState([]);
   const [medicines, setMedicines] = useState([]);
   const [stats, setStats] = useState({ totalPatients: 0, queueCount: 0, systemMode: 'Loading...' });
 
-  // Single synchronized network fetch hook
+  // Sync data whenever user logs in
   useEffect(() => {
     if (!isLoggedIn) return; 
 
-    // 1. Fetch live Appointments from the "patients" array
+    // Fetch Patients
     fetch('http://localhost:3001/patients')
       .then(res => res.json())
       .then(data => setAppointments(data))
       .catch(err => console.error("Error connecting to /patients endpoint:", err));
 
-    // 2. Fetch live Medicines inventory array from db.json
+    // Fetch Medicines
     fetch('http://localhost:3001/medicines')
       .then(res => res.json())
       .then(data => setMedicines(data || [])) 
       .catch(err => console.error("Error connecting to medicines database:", err));
 
-    // 3. Fetch live Telemetry Metrics from db.json stats object
+    // Fetch Server Stats
     fetch('http://localhost:3001/stats')
       .then(res => res.json())
       .then(data => {
@@ -81,18 +79,14 @@ export default function App() {
         </header>
 
         <div className="transition-all duration-300">
+          {/* Doctor view uses the optimized dynamic DashboardContainer */}
           {view === 'dashboard' && role === 'doctor' && (
-            <div className="space-y-10">
-              {/* StatsCards fed dynamically from server schema */}
-              <StatsCards 
-                totalPatients={stats.totalPatients} 
-                queueCount={appointments.length || stats.queueCount} 
-                systemMode={stats.systemMode} 
-              />
-              <div className="bg-white rounded-[2.5rem] shadow-sm border border-slate-100 p-2 overflow-hidden">
-                <AppointmentTable appointments={appointments} setAppointments={setAppointments} />
-              </div>
-            </div>
+            <DashboardContainer 
+              currentView={view} 
+              appointments={appointments} 
+              setAppointments={setAppointments} 
+              stats={stats} 
+            />
           )}
 
           {view === 'dashboard' && role === 'patient' && (
