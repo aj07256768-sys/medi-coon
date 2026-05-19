@@ -57,8 +57,22 @@ const LoginForm = ({ onLoginSuccess }) => {
           
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
-              <button type="button" onClick={() => setRole('doctor')} className={`p-4 rounded-3xl border-2 font-black text-[10px] uppercase transition-all ${role === 'doctor' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-100 text-slate-400'}`}>👨‍⚕️ Staff Portal</button>
-              <button type="button" onClick={() => setRole('patient')} className={`p-4 rounded-3xl border-2 font-black text-[10px] uppercase transition-all ${role === 'patient' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-100 text-slate-400'}`}>🤒 Patient Hub</button>
+              {/* FIXED: Backticks added inside curly braces to fix syntax compiler error */}
+              <button 
+                type="button" 
+                onClick={() => setRole('doctor')} 
+                className={`p-4 rounded-3xl border-2 font-black text-[10px] uppercase transition-all ${role === 'doctor' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-100 text-slate-400'}`}
+              >
+                👨‍⚕️ Staff Portal
+              </button>
+              
+              <button 
+                type="button" 
+                onClick={() => setRole('patient')} 
+                className={`p-4 rounded-3xl border-2 font-black text-[10px] uppercase transition-all ${role === 'patient' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-100 text-slate-400'}`}
+              >
+                🤒 Patient Hub
+              </button>
             </div>
 
             <div className="space-y-3">
