@@ -32,9 +32,10 @@
       "type": "Scheduled",
       "status": "Active",
       "condition": "Hypertension Follow-up",
-      "assignedDoctor": "Dr. Sarah Jenkins"
-
-      "id": "MC-102",
+        "assignedDoctor": "Dr. Sarah Jenkins"
+      },
+      {
+        "id": "MC-102",
       "name": "Alice Wanjiku",
       "age": 34,
       "gender": "F",
