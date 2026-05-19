@@ -1,7 +1,19 @@
 {
-  "operators": [
+  "users": [
     {
       "id": "1",
+
+      "username": "johndoe@email.com",
+      "password": "Password123",
+      "role": "Patient",
+      "name": "John Doe"
+    },
+    {
+      "id": "2",
+      "username": "drsmith@mediconnect.com",
+      "password": "DocPassword456",
+      "role": "Doctor",
+      "name": "Dr. Sarah Smith"
       "username": "admin_staff",
       "name": "Sarah Jenkins",
       "role": "Lead Administrator"
@@ -68,54 +80,21 @@
       "temperature": "98.6",
       "oxygenSaturation": "99%",
       "recordedAt": "10:35 AM"
+
     },
     {
-      "id": "v-102",
-      "patientId": "rec-03",
-      "bloodPressure": "142/95",
-      "heartRate": 88,
-      "temperature": "98.9",
-      "oxygenSaturation": "96%",
-      "recordedAt": "11:40 AM"
+      "id": "3",
+      "username": "admin01",
+      "password": "AdminSecure789",
+      "role": "Admin",
+      "name": "System Administrator"
     }
   ],
-  "doctorSchedules": [
+  "medicines": [
     {
-      "id": "doc-1",
-      "doctorName": "Dr. Marcus Vance",
-      "specialty": "Pediatrics",
-      "status": "On Duty",
-      "slots": ["09:00 AM", "10:30 AM", "02:00 PM"]
-    },
-    {
-      "id": "doc-2",
-      "doctorName": "Dr. Sarah Jenkins",
-      "specialty": "Cardiology",
-      "status": "On Duty",
-      "slots": ["11:30 AM", "01:15 PM", "04:30 PM"]
-    },
-    {
-      "id": "doc-3",
-      "doctorName": "Dr. Amara Okafor",
-      "specialty": "Emergency Medicine",
-      "status": "On Call",
-      "slots": ["12:15 PM", "03:00 PM"]
-    }
-  ],
-  "facilities": [
-    {
-      "id": "fac-01",
-      "name": "Community General Care Center (Boston Main)",
-      "address": "75 Alphonsus St, Boston, MA 02120",
-      "type": "Urgent Outpatient Facility",
-      "phone": "(617) 555-0143"
-    },
-    {
-      "id": "fac-02",
-      "name": "MediConnect Ambulatory Annex (Cambridge Node)",
-      "address": "149 Cambridge St, Cambridge, MA 02141",
-      "type": "Diagnostic Clinic",
-      "phone": "(617) 555-0199"
+      "name": "yyy",
+      "stock": 10000,
+      "id": 1
     }
   ],
   "medicines": [
