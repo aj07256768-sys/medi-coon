@@ -12,3 +12,20 @@ const LoginForm = ({ onLoginSuccess }) => {
     { name: "Dr. Evans", email: "doctor@test.com", password: "password123", role: "doctor" },
     { name: "Jane Doe", email: "patient@test.com", password: "password123", role: "patient" }
   ]);
+   const handleSubmit = (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (isSigningUp) {
+      if (mockUsers.find(u => u.email.toLowerCase() === email.toLowerCase())) {
+        setError('Email already registered!');
+        return;
+      }
+      const newUser = { name, email, password, role };
+      setMockUsers([...mockUsers, newUser]);
+      alert('Registration successful!');
+      onLoginSuccess(role, name);
+    } else {
+      const matchedUser = mockUsers.find(
+        u => u.email.toLowerCase() === email.toLowerCase() && u.password === password && u.role === role
+      );
