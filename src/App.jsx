@@ -85,7 +85,11 @@ export default function App() {
               currentView={view} 
               appointments={appointments} 
               setAppointments={setAppointments} 
-              stats={stats} 
+              stats={{
+                ...stats,
+                totalPatients: appointments.length > 0 ? 140 + appointments.length : stats.totalPatients,
+                queueCount: appointments.length
+              }} 
             />
           )}
 
