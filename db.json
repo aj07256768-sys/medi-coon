@@ -1,32 +1,113 @@
- {
-  "users": [
+{
+  "operators": [
     {
       "id": "1",
-      "name": "Dr. Evans",
-      "email": "doctor@test.com",
-      "password": "password123",
-      "role": "doctor"
+      "username": "admin_staff",
+      "name": "Sarah Jenkins",
+      "role": "Lead Administrator"
+    }
+  ],
+  "stats": {
+    "totalPatients": 142,
+    "activeQueue": 12,
+    "availableDoctors": 8,
+    "occupancyRate": "84%"
+  },
+  "patients": [
+    {
+      "id": "rec-01",
+      "name": "Alex Rivera",
+      "time": "10:30 AM",
+      "type": "Scheduled",
+      "status": "Active",
+      "condition": "Routine Checkup",
+      "assignedDoctor": "Dr. Marcus Vance"
     },
     {
-      "id": "2",
-      "name": "Jane Doe",
-      "email": "patient@test.com",
-      "password": "password123",
-      "role": "patient"
-    }
-  ],
-  "appointments": [
+      "id": "rec-02",
+      "name": "Elena Rostova",
+      "time": "11:15 AM",
+      "type": "Walk-in",
+      "status": "Pending Assignment",
+      "condition": "Acute Migraine",
+      "assignedDoctor": "Unassigned"
+    },
     {
-      "id": "1",
-      "name": "John Doe",
-      "department": "General Consultation",
-      "date": "2026-05-20"
+      "id": "rec-03",
+      "name": "Marcus Aurelius",
+      "time": "11:30 AM",
+      "type": "Scheduled",
+      "status": "Active",
+      "condition": "Hypertension Follow-up",
+      "assignedDoctor": "Dr. Sarah Jenkins"
+    },
+    {
+      "id": "rec-04",
+      "name": "Chloe Sterling",
+      "time": "12:15 PM",
+      "type": "Urgent",
+      "status": "Active",
+      "condition": "Suture Removal",
+      "assignedDoctor": "Dr. Amara Okafor"
     }
   ],
-  "medicines": [
-    { "id": "1", "name": "Paracetamol", "stock": 450 },
-    { "id": "2", "name": "Amoxicillin", "stock": 12 },
-    { "id": "3", "name": "Insulin", "stock": 84 },
-    { "id": "4", "name": "Aspirin", "stock": 20 }
+  "vitalsTelemetry": [
+    {
+      "id": "v-101",
+      "patientId": "rec-01",
+      "bloodPressure": "120/80",
+      "heartRate": 72,
+      "temperature": "98.6",
+      "oxygenSaturation": "99%",
+      "recordedAt": "10:35 AM"
+    },
+    {
+      "id": "v-102",
+      "patientId": "rec-03",
+      "bloodPressure": "142/95",
+      "heartRate": 88,
+      "temperature": "98.9",
+      "oxygenSaturation": "96%",
+      "recordedAt": "11:40 AM"
+    }
+  ],
+  "doctorSchedules": [
+    {
+      "id": "doc-1",
+      "doctorName": "Dr. Marcus Vance",
+      "specialty": "Pediatrics",
+      "status": "On Duty",
+      "slots": ["09:00 AM", "10:30 AM", "02:00 PM"]
+    },
+    {
+      "id": "doc-2",
+      "doctorName": "Dr. Sarah Jenkins",
+      "specialty": "Cardiology",
+      "status": "On Duty",
+      "slots": ["11:30 AM", "01:15 PM", "04:30 PM"]
+    },
+    {
+      "id": "doc-3",
+      "doctorName": "Dr. Amara Okafor",
+      "specialty": "Emergency Medicine",
+      "status": "On Call",
+      "slots": ["12:15 PM", "03:00 PM"]
+    }
+  ],
+  "facilities": [
+    {
+      "id": "fac-01",
+      "name": "Community General Care Center (Boston Main)",
+      "address": "75 Alphonsus St, Boston, MA 02120",
+      "type": "Urgent Outpatient Facility",
+      "phone": "(617) 555-0143"
+    },
+    {
+      "id": "fac-02",
+      "name": "MediConnect Ambulatory Annex (Cambridge Node)",
+      "address": "149 Cambridge St, Cambridge, MA 02141",
+      "type": "Diagnostic Clinic",
+      "phone": "(617) 555-0199"
+    }
   ]
 }
