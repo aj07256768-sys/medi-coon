@@ -1,0 +1,27 @@
+
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "johndoe@email.com",
+      "password": "Password123",
+      "role": "Patient",
+      "name": "John Doe"
+    },
+    {
+      "id": "2",
+      "username": "drsmith@mediconnect.com",
+      "password": "DocPassword456",
+      "role": "Doctor",
+      "name": "Dr. Sarah Smith"
+    },
+    {
+      "id": "3",
+      "username": "admin01",
+      "password": "AdminSecure789",
+      "role": "Admin",
+      "name": "System Administrator"
+    }
+  ]
+}
+
