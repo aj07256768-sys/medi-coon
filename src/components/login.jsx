@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+
 const LoginForm = ({ onLoginSuccess }) => {
   const [role, setRole] = useState('doctor');
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-     const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   // Static mockup list of user credentials
@@ -12,7 +13,8 @@ const LoginForm = ({ onLoginSuccess }) => {
     { name: "Dr. Evans", email: "doctor@test.com", password: "password123", role: "doctor" },
     { name: "Jane Doe", email: "patient@test.com", password: "password123", role: "patient" }
   ]);
-   const handleSubmit = (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
 
@@ -30,7 +32,7 @@ const LoginForm = ({ onLoginSuccess }) => {
         u => u.email.toLowerCase() === email.toLowerCase() && u.password === password && u.role === role
       );
 
-            if (matchedUser) {
+      if (matchedUser) {
         onLoginSuccess(matchedUser.role, matchedUser.name);
       } else {
         setError('Invalid login credentials or role!');
@@ -52,8 +54,40 @@ const LoginForm = ({ onLoginSuccess }) => {
         <div className="w-full max-w-md">
           <h2 className="text-4xl font-black text-slate-800 mb-6">{isSigningUp ? 'Join Portal' : 'Login'}</h2>
           {error && <div className="p-4 bg-red-50 text-red-700 text-xs font-black rounded-xl mb-4">⚠️ {error}</div>}
-   <form onSubmit={handleSubmit} className="space-y-4">
+          
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
-              <button type="button" onClick={() => setRole('doctor')} className={p-4 rounded-3xl border-2 font-black text-[10px] uppercase transition-all ${role === 'doctor' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-100 text-slate-400'}}>👨‍⚕️ Staff Portal</button>
-              <button type="button" onClick={() => setRole('patient')} className={p-4 rounded-3xl border-2 font-black text-[10px] uppercase transition-all ${role === 'patient' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-100 text-slate-400'}}>🤒 Patient Hub</button>
+              {/* FIXED: Backticks added inside curly braces to fix syntax compiler error */}
+              <button 
+                type="button" 
+                onClick={() => setRole('doctor')} 
+                className={`p-4 rounded-3xl border-2 font-black text-[10px] uppercase transition-all ${role === 'doctor' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-100 text-slate-400'}`}
+              >
+                👨‍⚕️ Staff Portal
+              </button>
+              
+              <button 
+                type="button" 
+                onClick={() => setRole('patient')} 
+                className={`p-4 rounded-3xl border-2 font-black text-[10px] uppercase transition-all ${role === 'patient' ? 'border-blue-600 bg-blue-50 text-blue-700' : 'border-slate-100 text-slate-400'}`}
+              >
+                🤒 Patient Hub
+              </button>
             </div>
+
+            <div className="space-y-3">
+              {isSigningUp && <input type="text" placeholder="Full Name" required value={name} onChange={(e) => setName(e.target.value)} className="w-full p-4 rounded-2xl bg-slate-50 border text-sm font-bold outline-none focus:border-blue-600" />}
+              <input type="email" placeholder="Email Address" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-4 rounded-2xl bg-slate-50 border text-sm font-bold outline-none focus:border-blue-600" />
+              <input type="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} className="w-full p-4 rounded-2xl bg-slate-50 border text-sm font-bold outline-none focus:border-blue-600" />
+            </div>
+
+            <button type="submit" className="w-full py-5 bg-blue-600 text-white rounded-2xl font-black text-xs uppercase tracking-widest">{isSigningUp ? 'Register Account' : 'Initialize Portal'}</button>
+          </form>
+          <button type="button" onClick={() => { setIsSigningUp(!isSigningUp); setError(''); }} className="mt-8 text-blue-600 font-black text-xs uppercase w-full text-center hover:underline">{isSigningUp ? 'Back to Login' : 'Create Local Profile'}</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LoginForm;
