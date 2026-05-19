@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const patients = [
+const initialPatients = [
   { name: 'Alice Wanjiku', blood: 'O+', last: '12 May 2026', id: 'MC-102', age: 34, gender: 'F', status: 'Active' },
   { name: 'David Akoth', blood: 'A-', last: '10 May 2026', id: 'MC-405', age: 52, gender: 'M', status: 'Active' },
   { name: 'Sarah Njeri', blood: 'B+', last: '01 May 2026', id: 'MC-092', age: 28, gender: 'F', status: 'Inactive' },
@@ -118,9 +118,33 @@ const PatientRow = ({ patient, isLast }) => {
 };
 
 const PatientRecords = () => {
+  const [dataRecords, setDataRecords] = useState(initialPatients);
   const [search, setSearch] = useState('');
 
-  const filtered = patients.filter(p =>
+  const handleAddPatient = () => {
+    const names = ['Emmanuel Kiprop', 'Grace Achieng', 'John Mwangi', 'Nelly Chebet', 'Otieno Onyango'];
+    const bloodTypes = ['O+', 'A-', 'B+', 'AB+'];
+    
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const randomBlood = bloodTypes[Math.floor(Math.random() * bloodTypes.length)];
+    const randomAge = Math.floor(Math.random() * (65 - 18 + 1)) + 18;
+    const randomGender = Math.random() > 0.5 ? 'M' : 'F';
+    const randomId = `MC-${Math.floor(100 + Math.random() * 900)}`;
+
+    const newPatient = {
+      name: randomName,
+      blood: randomBlood,
+      last: '19 May 2026',
+      id: randomId,
+      age: randomAge,
+      gender: randomGender,
+      status: 'Active'
+    };
+
+    setDataRecords(prev => [newPatient, ...prev]);
+  };
+
+  const filtered = dataRecords.filter(p =>
     p.name.toLowerCase().includes(search.toLowerCase()) ||
     p.id.toLowerCase().includes(search.toLowerCase())
   );
@@ -142,7 +166,7 @@ const PatientRecords = () => {
         overflow: 'hidden',
         boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)',
         maxWidth: 780,
-        margin: '0 auto',
+        margin: '40px auto',
       }}>
 
         <div style={{
@@ -159,7 +183,7 @@ const PatientRecords = () => {
               Patient Records
             </h2>
             <p style={{ margin: '2px 0 0', fontSize: 12, color: '#94A3B8' }}>
-              Medical Archive &middot; 1,402 total patients
+              Medical Archive &middot; {1400 + dataRecords.length} total patients
             </p>
           </div>
 
@@ -181,17 +205,23 @@ const PatientRecords = () => {
                 transition: 'border-color 0.15s, box-shadow 0.15s',
               }}
             />
-            <button style={{
-              padding: '8px 16px',
-              fontSize: 13,
-              fontWeight: 600,
-              backgroundColor: '#1E293B',
-              color: '#FFF',
-              border: 'none',
-              borderRadius: 10,
-              cursor: 'pointer',
-              fontFamily: "'DM Sans', sans-serif",
-            }}>
+            <button 
+              onClick={handleAddPatient}
+              style={{
+                padding: '8px 16px',
+                fontSize: 13,
+                fontWeight: 600,
+                backgroundColor: '#1E293B',
+                color: '#FFF',
+                border: 'none',
+                borderRadius: 10,
+                cursor: 'pointer',
+                fontFamily: "'DM Sans', sans-serif",
+                transition: 'opacity 0.1s ease',
+              }}
+              onMouseEnter={e => e.currentTarget.style.opacity = '0.9'}
+              onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+            >
               + Add Patient
             </button>
           </div>
@@ -235,7 +265,6 @@ const PatientRecords = () => {
           </table>
         </div>
 
-        {/* Footer */}
         <div style={{
           padding: '12px 24px',
           borderTop: '1px solid #F1F5F9',
@@ -244,7 +273,7 @@ const PatientRecords = () => {
           alignItems: 'center',
         }}>
           <span style={{ fontSize: 12, color: '#CBD5E1', fontFamily: "'DM Mono', monospace" }}>
-            Showing {filtered.length} of {patients.length} records
+            Showing {filtered.length} of {dataRecords.length} records
           </span>
           <div style={{ display: 'flex', gap: 6 }}>
             {['←', '→'].map(arrow => (
